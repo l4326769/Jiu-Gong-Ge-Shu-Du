@@ -172,26 +172,26 @@
             yarr.push(9)
         }
         let num = 0
-        xarr.forEach((value) => {
+        for (let i=xarr.length;i--;){
+            const value=xarr[i]
             if (yarr.indexOf(value) > -1) {
                 num = value
+                break
             }
-        })
+        }
         return num
     }
 
     function onlyCheck(arr) {//九个数字中非“.”的重复时返回false，传入九字数组
-        return arr.every((value, index) => {
-            if (value != ".") {
-                if (arr.indexOf(value) != index) {
+        for (let i=arr.length;i--;){
+            const value=arr[i]
+            if (value!=".") {
+                if (arr.indexOf(value) != i) {
                     return false
-                } else {
-                    return true
                 }
-            } else {
-                return true
             }
-        })
+        }
+        return true
     }
 
     function allCheck(arr) {//判断整个数独是否存在重复
@@ -216,11 +216,13 @@
             new Set(get_HengNumber(arr, y)
                 .concat(get_ShuNumber(arr, x)
                     .concat(get_NineNumber(arr, block_NineNumber(x, y))))))
-        haveNumber.forEach((value) => {
+
+        for (let i=haveNumber.length;i--;){
+            const value=haveNumber[i]
             if (arr1.indexOf(value) > -1) {
                 arr1.splice(arr1.indexOf(value), 1)
             }
-        })
+        }
         return arr1
     }
 
@@ -237,7 +239,9 @@
             [".", ".", ".", ".", "8", ".", ".", "7", "9"]]
 
     function scan(){
+        console.time("九宫格耗时")
         const list=solveSudoku(board)
+        console.timeEnd("九宫格耗时")
         console.log(list)
         const daan=document.getElementById("scan")
         let virdom=document.createDocumentFragment()
