@@ -71,8 +71,8 @@
                 } else {
                     console.log("设置最后一个点，判断是否成功")
                     if (allCheck(changeArr)) {
-                        stops = true
-                        return
+                        stops = true//如果需要导出所有可用结果，把所有stop判断删除即可
+                        return//如果需要导出所有可用结果，把所有stop判断删除即可
                     }
                 }
                 if (i == arr.length - 1 && number != dots.length - 1 && !stops) {
