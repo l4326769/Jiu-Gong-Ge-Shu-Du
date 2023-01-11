@@ -63,14 +63,19 @@
                 return
             }
 
-            for (let i =0,len=arr.length;i<len;i++) {
+
+            const dotsLen=dots.length-1
+            for (let i =arr.length;i--;) {
                 if (stops) {//如果需要导出所有可用结果，把所有stop判断删除即可
                     return
                 }
                 setBlockNumber(changeArr, x, y, arr[i])
                 console.log("已在第" + number + "个点设置", arr[i])
-                if (number != dots.length - 1) {
+                if (number != dotsLen) {
                     setlist(number + 1, dots[number + 1].x, dots[number + 1].y)
+                    if (i == 0 && !stops) { //如果需要导出所有可用结果，把所有stop判断删除即可
+                        setBlockNumber(changeArr, x, y, ".")//当前点可用结果遍历完还没成功，清除当前点的数字
+                    }
                 } else {
                     console.log("设置最后一个点，判断是否成功")
                     if (allCheck(changeArr)) {
@@ -78,9 +83,7 @@
                         return//如果需要导出所有可用结果，把所有stop判断删除即可
                     }
                 }
-                if (i == arr.length - 1 && number != dots.length - 1 && !stops) {
-                    setBlockNumber(changeArr, x, y, ".")//当前点可用结果遍历完还没成功，清除当前点的数字
-                }
+
             }
 
         }
