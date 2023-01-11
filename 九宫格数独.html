@@ -198,19 +198,18 @@
     }
 
     function allCheck(arr) {//判断整个数独是否存在重复
-        let check1 = true
         for (let i = 9; i--;) {
             if (!onlyCheck(get_NineNumber(arr, i+1))) {
-                check1 = false
+                return false
             }
             if (!onlyCheck(get_HengNumber(arr, i))) {
-                check1 = false
+                return false
             }
             if (!onlyCheck(get_ShuNumber(arr, i))) {
-                check1 = false
+                return false
             }
         }
-        return check1
+        return true
     }
 
     function checkDotFill(arr, x, y) {//获取单点剩余可选数字，传入整个数独,返回数组
