@@ -60,12 +60,12 @@
                 return
             }
 
-            arr.forEach((value,index)=>{
+            for (let i =0,len=arr.length;i<len;i++) {
                 if (stops) {
                     return
                 }
-                setBlockNumber(changeArr, x, y, value)
-                console.log("已在第" + number + "个点设置", value)
+                setBlockNumber(changeArr, x, y, arr[i])
+                console.log("已在第" + number + "个点设置", arr[i])
                 if (number != dots.length - 1) {
                     setlist(number + 1, dots[number + 1].x, dots[number + 1].y)
                 } else {
@@ -75,10 +75,10 @@
                         return
                     }
                 }
-                if (index == arr.length - 1 && number != dots.length - 1 && !stops) {
+                if (i == arr.length - 1 && number != dots.length - 1 && !stops) {
                     setBlockNumber(changeArr, x, y, ".")//当前点可用结果遍历完还没成功，清除当前点的数字
                 }
-            })
+            }
 
         }
 
@@ -235,6 +235,7 @@
 
     function scan(){
         const list=solveSudoku(board)
+        console.log(list)
         const daan=document.getElementById("scan")
         let virdom=document.createDocumentFragment()
         const len=list.length
@@ -246,7 +247,7 @@
         daan.textContent=""
         daan.appendChild(virdom)
     }
-    console.log(solveSudoku(board))
+
 </script>
 </body>
 </html>
