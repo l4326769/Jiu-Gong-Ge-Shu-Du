@@ -60,12 +60,12 @@
                 return
             }
 
-            for (let i =0,len=arr.length;i<len;i++) {
+            arr.forEach((value,index)=>{
                 if (stops) {
                     return
                 }
-                setBlockNumber(changeArr, x, y, arr[i])
-                console.log("已在第" + number + "个点设置", arr[i])
+                setBlockNumber(changeArr, x, y, value)
+                console.log("已在第" + number + "个点设置", value)
                 if (number != dots.length - 1) {
                     setlist(number + 1, dots[number + 1].x, dots[number + 1].y)
                 } else {
@@ -75,10 +75,11 @@
                         return
                     }
                 }
-                if (i == arr.length - 1 && number != dots.length - 1 && !stops) {
+                if (index == arr.length - 1 && number != dots.length - 1 && !stops) {
                     setBlockNumber(changeArr, x, y, ".")//当前点可用结果遍历完还没成功，清除当前点的数字
                 }
-            }
+            })
+
         }
 
         setlist(0, dots[0].x, dots[0].y)
