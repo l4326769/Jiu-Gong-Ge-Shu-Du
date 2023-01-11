@@ -33,8 +33,9 @@
         for (let x = 9; x--;) {
             for (let y = 9; y--;) {
                 if (changeArr[y][x] == ".") {
-                    if (checkDotFill(changeArr,x,y).length==1){
-                        setBlockNumber(changeArr,x,y,checkDotFill(changeArr,x,y)[0])
+                    const oneDotCheck=checkDotFill(changeArr,x,y)
+                    if (oneDotCheck.length==1){
+                        setBlockNumber(changeArr,x,y,oneDotCheck[0])
                     }else{
                         dots.push({
                             x, y
