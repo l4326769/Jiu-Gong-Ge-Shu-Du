@@ -33,12 +33,14 @@
         for (let x = 9; x--;) {
             for (let y = 9; y--;) {
                 if (changeArr[y][x] == ".") {
-                    /*if (checkDotFill(changeArr,x,y).length==1){
+                    if (checkDotFill(changeArr,x,y).length==1){
                         setBlockNumber(changeArr,x,y,checkDotFill(changeArr,x,y)[0])
-                    }*/
-                    dots.push({
-                        x, y
-                    })
+                    }else{
+                        dots.push({
+                            x, y
+                        })
+                    }
+
                 }
             }
         }
