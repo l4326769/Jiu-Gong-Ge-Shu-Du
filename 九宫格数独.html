@@ -50,7 +50,7 @@
 
 
         let stops = false
-
+        const dotsLen=dots.length-1
         function setlist(number, x, y) {
             if (stops) {//如果需要导出所有可用结果，把所有stop判断删除即可
                 return
@@ -63,8 +63,6 @@
                 return
             }
 
-
-            const dotsLen=dots.length-1
             for (let i =arr.length;i--;) {
                 if (stops) {//如果需要导出所有可用结果，把所有stop判断删除即可
                     return
